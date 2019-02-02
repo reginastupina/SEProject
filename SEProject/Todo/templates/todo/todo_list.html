@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+    <div id="main">
+
+        <a href="../" type="button" class="btn btn-primary">View lists</a>
+        <hr>
+        <!--<form method="GET" class="form-inline" action="">-->
+            <!--<input class="form-control" type="text" name = "name" placeholder="Search">-->
+            <!--<button type="submit" class="btn btn-primary my-1" style="margin-left: 5px;">Search</button>-->
+        <!--</form>-->
+        <!--<a href="" type="button" class="btn btn-primary">Reset</a>-->
+        <!--<div class="dropdown">-->
+            <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Order by</button>-->
+            <!--<div class="dropdown-menu">-->
+                <!--<a class="dropdown-item" onclick="window.location.href=''">Name</a>-->
+                <!--<a class="dropdown-item" onclick="window.location.href=''">Creation date</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <table class="table">
+            <tr>
+                <th>Task</th>
+                <th>Created</th>
+                <th>Due on</th>
+                <th>Owner</th>
+                <th>Mark</th>
+            </tr>
+            {% for task in tasks %}
+                    <tr>
+                        <td>{{ task.name }}</td>
+                        <td>{{ task.cr_date }}</td>
+                        <td>{{ task.due_date }}</td>
+                        <td>{{ task.owner }}</td>
+                        <td>
+                            <a href="./task_done/{{task.id}}"><button type="button" class="btn btn-default dn_btn">Done</button></a>
+                        </td>
+                    </tr>
+            {% endfor %}
+        </table>
+        <a href="./completed" type="button" class="btn btn-warning">View completed tasks</a>
+        <a href="./delete_list"><button type="button"  class="btn btn-danger">Delete this list</button></a>
+    </div>
+{% endblock %}

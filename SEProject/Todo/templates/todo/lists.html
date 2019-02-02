@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div id="main">
+
+        <h3>Lists</h3>
+        <a href="create_list"><button type="button" class="btn btn-info">Add list</button></a>
+        <hr>
+        <form method="GET" class="form-inline" action="">
+            {% csrf_token %}
+            <input class="form-control" type="text" name="name" placeholder="Search">
+            <button type="submit" class="btn btn-primary my-1" style="margin-left: 5px;">Search</button>
+        </form>
+        <a href=".." type="button" class="btn btn-primary">Reset</a>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='./?order=name'" >Order by name</button>
+        <table class="table">
+            <tr>
+                <th>Name of list</th>
+            </tr>
+            {% for list in lists %}
+                <tr>
+                    <td>
+                        <a href="{{ list.id }}/todo">{{ list.name }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

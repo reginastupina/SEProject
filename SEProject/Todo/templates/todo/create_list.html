@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div id="main">
+        <a href=".." type="button" class="btn btn-primary">View lists</a>
+        <hr>
+        <h3>Lists</h3>
+        <hr>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-default" value="Submit">
+        </form>
+    </div>
+{% endblock %}
