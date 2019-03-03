@@ -28,7 +28,6 @@ class TaskModelSerializer(serializers.ModelSerializer):
 
 
 class UserModelSerializer(serializers.ModelSerializer):
-
-     class Meta:
-         model = User
-         field = ['id', 'username', 'password', 'email']
+    class Meta:
+        model = User
+        field = ['id', 'username', 'password', 'email']

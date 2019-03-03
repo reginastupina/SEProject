@@ -3,39 +3,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TODO</title>
+    <title>CHECKI</title>
+    <link rel="shortcut icon" href="{% static 'images/list.png' %}"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    body {
+    font-family: 'FjallaOne', sans-serif;
+    font-size: 22px;
+}
+#navigation {
+  float: right;
+  list-style: none;
+  padding: 0;
+}
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #254E58;
+}
+
+li{
+  float: left;
+}
+
+li a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active){
+  background-color: #88BDBC
+}
+
+.active{
+  background-color: #112D32
+}
+</style>
 </head>
 <body>
 
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/blog">TODO</a>
+        <img src="{% static 'images/list.png' %}" width="30" height="30">
+        <h3>CHECKI</h3>
+      <!--<a class="navbar-brand" href="/blog">CHECKI</a>-->
     </div>
+      <div id="navigation">
     <ul class="nav navbar-nav">
       {% if user.is_authenticated %}
-        <li class="active"><a>Hi {{ user.username }}!</a></li>
-        <li>
+        <li class="active"><a>Hi, {{ user.username }}!</a></li>
+        <li id="Hello">
             <a href="{% url 'logout' %}">Logout</a>
         </li>
         {% else %}
-        <li>
+
+
+        <!--important -->
+        <li id="Hello">
             <a href="{% url 'login' %}">Login</a>
         </li>
-        <li>
+        <li id="Hello">
             <a href="{% url 'register' %}">Register</a>
         </li>
         {% endif %}
     </ul>
+      </div>
   </div>
 </nav>
 
 {% block body %}
 {% endblock %}
-
 </body>
 </html>
