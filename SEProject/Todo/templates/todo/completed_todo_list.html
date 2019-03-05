@@ -3,16 +3,16 @@
 
 {% block body %}
     <div id="main">
-        <a href="../" type="button" class="btn btn-primary">View lists</a>
+        <a href="../" type="button" class="button button1">View lists</a>
         <hr>
         <h3>Tasks</h3>
         <form method="GET" class="form-inline" action="./completed">
             <input class="form-control" type="text" name = "name" placeholder="Search">
-            <button type="submit" class="btn btn-primary my-1" style="margin-left: 5px;">Submit</button>
+            <button type="submit" class="button button1" style="margin-left: 5px;">Submit</button>
         </form>
-        <a href="./completed" type="button" class="btn btn-primary">Reset</a>
+        <a href="./completed" type="button" class="button button1">Reset</a>
         <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <button type="button" class="button button1" data-toggle="dropdown">
                 Order by
             </button>
             <div class="dropdown-menu">
@@ -26,7 +26,7 @@
                 <th>Created</th>
                 <th>Due on</th>
                 <th>Owner</th>
-                <th>Mark</th>
+                <!--<th>Mark</th>-->
             </tr>
             {% for task in tasks %}
                     <tr>
@@ -35,11 +35,11 @@
                         <td>{{ task.due_date }}</td>
                         <td>{{ task.owner }}</td>
                         <td>
-                            <a href="./task_notdone/{{task.id}}"><button type="button" class="btn btn-default dn_btn">Not done</button></a>
+                            <a href="./task_notdone/{{task.id}}"><button type="button" class="button button1">Not done</button></a>
                         </td>
                     </tr>
             {% endfor %}
         </table>
-        <a href="./todo" type="button" class="btn btn-warning">View incompleted tasks</a>
+        <a href="./todo" type="button" class="button button1">View incompleted tasks</a>
     </div>
 {% endblock %}

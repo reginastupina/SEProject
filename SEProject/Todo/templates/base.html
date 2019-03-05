@@ -2,85 +2,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>CHECKI</title>
     <link rel="shortcut icon" href="{% static 'images/list.png' %}"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link href="https://fonts.googleapis.com/css?family=Fjalla One" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-    body {
-    font-family: 'FjallaOne', sans-serif;
-    font-size: 22px;
-}
-#navigation {
-  float: right;
-  list-style: none;
-  padding: 0;
-}
-ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #254E58;
-}
 
-li{
-  float: left;
-}
+        body{
+            font-family: 'Fjalla One', sans-serif;
+            font-size: 30px;
+            background-image: url('/static/images/background.jpeg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
 
-li a{
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+        #navigation{
+            float: right;
+            list-style: none;
+            padding: 0px;
+            position: relative;
+            width: 100%;
+            top: 10%;
 
-li a:hover:not(.active){
-  background-color: #88BDBC
-}
+        }
 
-.active{
-  background-color: #112D32
-}
-</style>
+        span{
+        float: left;
+        text-align: left;
+        display: inline-block;
+        margin-right: 100px;
+        font-size: 40px;
+        color: white;
+        }
+
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #112D32;
+        }
+
+        li{
+            float: right;
+        }
+
+        li a{
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active){
+            background-color: #88BDBC
+        }
+
+        .active{
+            background-color: #112D32
+        }
+
+        <!--FOR BLUR IMAGE EFFECT -->
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        <!--/* Position text in the middle of the page/image */-->
+        .bg-text{
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(192,192,192, 0.8); /* Black w/opacity/see-through */
+            color: идфсл;
+            font-weight: bold;
+            border: 5px solid #f1f1f1;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 65%;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .button{
+            background-color: #000000; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+
+        .button1 {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+    </style>
 </head>
 <body>
-
+<!--NAVIGATION BAR-->
 <nav class="navbar navbar-default">
+    <!--<span><img src="{% static 'images/list.png' %}" width="40" height="40" >CHECKI</span>-->
   <div class="container">
-    <div class="navbar-header">
-        <img src="{% static 'images/list.png' %}" width="30" height="30">
-        <h3>CHECKI</h3>
-      <!--<a class="navbar-brand" href="/blog">CHECKI</a>-->
-    </div>
+    <!--<div class="navbar-header">-->
+        <!--<p style="font-size:40px"><img src="{% static 'images/list.png' %}" width="30" height="30"> CHECKI</p>-->
+      <!--&lt;!&ndash;<a class="navbar-brand" href="/blog">CHECKI</a>&ndash;&gt;-->
+    <!--</div>-->
       <div id="navigation">
-    <ul class="nav navbar-nav">
-      {% if user.is_authenticated %}
-        <li class="active"><a>Hi, {{ user.username }}!</a></li>
-        <li id="Hello">
-            <a href="{% url 'logout' %}">Logout</a>
-        </li>
-        {% else %}
+          <!--<span><img src="{% static 'images/CHECKI.png' %}" width="140" height="60"></span>-->
+        <ul class="nav navbar-nav">
+            <span><img src="{% static 'images/list.png' %}" width="40" height="40" > CHECKI</span>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li class="active"><a>Hi, {{ user.username }}!</a></li>
+                <!--<li><a href="{% url 'logout' %}">Logout</a></li>-->
+            {% else %}
 
-
-        <!--important -->
-        <li id="Hello">
-            <a href="{% url 'login' %}">Login</a>
-        </li>
-        <li id="Hello">
-            <a href="{% url 'register' %}">Register</a>
-        </li>
-        {% endif %}
-    </ul>
+            <!--important -->
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <!--<li><a href="{% url 'register' %}">Register</a></li>-->
+            {% endif %}
+        </ul>
       </div>
   </div>
 </nav>
-
+<div class="bg-text">
 {% block body %}
 {% endblock %}
+</div>
 </body>
 </html>
