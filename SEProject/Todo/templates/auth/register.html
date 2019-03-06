@@ -8,10 +8,10 @@
         <h4 class="text-danger">{{ error }}</h4>
     {% endif %}
 
-    <form action="{% url 'register' %}" method="post">
+    <form action="{% url 'register' %}" method="post" class="rForRegistrationFields">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" class="button button1">
+        <input type="submit" class="button button1" value="Submit">
     </form>
 
 {% endblock %}

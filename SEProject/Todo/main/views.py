@@ -29,24 +29,24 @@ def todo_list(request, list):
         form = SearchForm(request.GET)
         if form.is_valid():
             search = form.cleaned_data['name']
-            tasks = Task.objects.filter(mark = False, list_id = list)
+            tasks = Task.objects.filter(mark=False, list_id=list)
             context = {
-                'tasks': tasks.filter(name__contains = search),
+                'tasks': tasks.filter(name__contains=search),
                 'form': form
             }
             return render(request, './todo/todo_list.html', context)
     if request.GET.get('order', '') != '':
-        tasks = Task.objects.filter(mark = False, list_id=list)
+        tasks = Task.objects.filter(mark=False, list_id=list)
         context = {
             'tasks': tasks.order_by(request.GET.get('order', ''))
         }
         return render(request, 'todo/todo_list.html', context)
     if request.POST.get('done_id', '') != '':
-        task = Task.objects.get(id = 'done_id')
+        task = Task.objects.get(id='done_id')
         task.mark = True
         task.save()
         return redirect('../todo_list')
-    tasks = Task.objects.filter(mark = False, list_id = list)
+    tasks = Task.objects.filter(mark=False, list_id=list)
     context = {
         'tasks': tasks
     }
@@ -59,19 +59,19 @@ def completed_todo_list(request, list):
         form = SearchForm(request.GET)
         if form.is_valid():
             search = form.cleaned_data['name']
-            tasks = Task.objects.filter(mark = True, list_id = list)
+            tasks = Task.objects.filter(mark=True, list_id=list)
             context = {
-                'tasks': tasks.filter(name__contains = search),
+                'tasks': tasks.filter(name__contains=search),
                 'form': form
             }
             return render(request, 'todo/completed_todo_list.html', context)
     if request.GET.get('order', '') != '':
-        tasks = Task.objects.filter(mark = True, list_id = list)
+        tasks = Task.objects.filter(mark=True, list_id=list)
         context = {
             'tasks': tasks.order_by('name'),
         }
         return render(request, 'todo/completed_todo_list.html', context)
-    tasks = Task.objects.filter(mark = True, list_id = list)
+    tasks = Task.objects.filter(mark=True, list_id=list)
     context = {
         'tasks': tasks,
     }
