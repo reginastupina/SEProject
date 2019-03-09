@@ -1,8 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import List, Task
 from .forms import SearchForm, ListForm
+from django.conf import settings
+from django.core.cache.backends.base import DEFAULT_TIMEOUT
+from django.views.decorators.cache import cache_page
 
+CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
+@cache_page(CACHE_TTL)
 def show_lists(request):
     if request.method == 'GET':
         form = SearchForm(request.GET)
@@ -24,6 +29,7 @@ def show_lists(request):
     return render(request, 'todo/lists.html', context)
 
 
+@cache_page(CACHE_TTL)
 def todo_list(request, list):
     if request.method == 'GET':
         form = SearchForm(request.GET)
@@ -54,6 +60,7 @@ def todo_list(request, list):
     return render(request, 'todo/todo_list.html', context)
 
 
+@cache_page(CACHE_TTL)
 def completed_todo_list(request, list):
     if request.method == 'GET':
         form = SearchForm(request.GET)
@@ -78,6 +85,7 @@ def completed_todo_list(request, list):
     return render(request, 'todo/completed_todo_list.html', context)
 
 
+@cache_page(CACHE_TTL)
 def create_list(request):
     if request.method == 'POST':
         form = ListForm(request.POST)
@@ -92,6 +100,7 @@ def create_list(request):
     return render(request, 'todo/create_list.html', context)
 
 
+@cache_page(CACHE_TTL)
 def make_done(request, fk, pk):
     task = Task.objects.get(pk=pk)
     task.mark = True
@@ -99,6 +108,7 @@ def make_done(request, fk, pk):
     return redirect('../todo')
 
 
+@cache_page(CACHE_TTL)
 def make_notdone(request, fk, pk):
     task = Task.objects.get(pk=pk)
     task.mark = False
@@ -106,6 +116,7 @@ def make_notdone(request, fk, pk):
     return redirect('../completed')
 
 
+@cache_page(CACHE_TTL)
 def delete_list(request, fk):
     del_list = List.objects.get(pk=fk)
     del_list.delete()

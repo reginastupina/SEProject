@@ -1,1 +1,8 @@
-Program description:
+Project description:
+
+The project called "CHECKI" allows users to create various lists with different tasks to do.
+In other words, user can create list which allows to group tasks together. 
+
+Advantages:
+API
+Redis
