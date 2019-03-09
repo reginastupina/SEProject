@@ -4,12 +4,12 @@
     <div id="main">
         <a href=".." type="button" class="button button1">View lists</a>
         <hr>
-            <div>Create your own unique list of tasks to do</div>
+            <div>CREATE YOUR OWN UNIQUE LIST OF TASKS TO DO</div>
         <hr>
             <form action="" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" class="btn btn-default" value="Submit">
+                <input type="submit" class="button button1" value="Submit">
             </form>
     </div>
 {% endblock %}

@@ -2,16 +2,29 @@
 
 {% block body %}
 
-    <h1>Registration</h1>
+    <div class="reg">Registration</div>
+    <div class="reg1">Please fill the form in order to create an account.</div>
+    <div class="column">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+        <div>Your password can't be too similar to your other personal information.</div>
+        <div>Your password must contain at least 8 characters.</div>
+        <div>Your password can't be a commonly used password.</div>
+        <div>Your password can't be entirely numeric.</div>
+        <div>Enter the same password as before, for verification.</div>
+    </div>
 
     {% if error %}
         <h4 class="text-danger">{{ error }}</h4>
     {% endif %}
 
-    <form action="{% url 'register' %}" method="post" class="rForRegistrationFields">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="button button1" value="Submit">
+    <form action="/auth/register/" method="post">
+        <input type="hidden" name="csrfmiddlewaretoken" value="uCfrEezadjJBeRHd6ALX47USMcc8yTfG7LKCDFLNXDxYblLram2zt018O18S2Yce">
+            <div class="inside">
+                <br><label>Username:</label><input class="button22" type="text" name="username" maxlength="150" autofocus="" required="" id="id_username"></span>
+                <br><label>Password:</label><input class="button22" type="password" name="password1" required="" id="id_password1"></span>
+                <br><label>Password confirmation:</label><input class="button22" type="password" name="password2" required="" id="id_password2"></span>
+
+                <br><input type="submit" class="button button1" value="Submit">
+            </div>
     </form>
 
 {% endblock %}

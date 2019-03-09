@@ -8,9 +8,9 @@ from rest_framework import status
 
 
 @api_view(['POST'])
-def login(requset):
-    username = requset.data.get('username')
-    password = requset.data.get('password')
+def login(request):
+    username = request.data.get('username')
+    password = request.data.get('password')
     user = authenticate(username=username, password=password)
     if user is None:
         return Response({'error': 'Invalid data'})

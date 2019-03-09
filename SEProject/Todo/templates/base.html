@@ -85,7 +85,7 @@
             color: black;
         }
 
-        ul{
+        .navbarnav{
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -128,8 +128,8 @@
         .bg-text{
             background-color: rgb(0,0,0); /* Fallback color */
             background-color: rgba(192,192,192, 0.8); /* Black w/opacity/see-through */
-            color: идфсл;
-            font-weight: bold;
+            color: black;
+            <!--font-weight: bold;-->
             border: 5px solid #f1f1f1;
             position: absolute;
             top: 55%;
@@ -137,7 +137,7 @@
             transform: translate(-50%, -50%);
             z-index: 2;
             width: 65%;
-            padding: 50px;
+            padding: 35px;
             text-align: center;
         }
 
@@ -157,8 +157,40 @@
             transition-duration: 0.4s;
         }
 
+        .button007{
+            background-color: #254E58;
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 8px 50px;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+
+        .button5{
+            background-color: #000000;
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 8px 2px;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+
         .1{
-        float: right;
+        float: left;
         }
 
         .button2{
@@ -177,6 +209,54 @@
             font-family: 'Fjalla One', sans-serif;
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.4s;
+        }
+
+        .button22{
+            background-color: #FFFFFF;
+            border: none;
+            color: white;
+            float: center;
+            padding: 15px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+
+
+        .button3{
+            background-color: #FFFFFF;
+            border: none;
+            color: white;
+            float: right;
+            padding: 15px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            width: 40%;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+
+        .inside{
+            float: left;
+            text-align: left;
+            display: inline-block;
+            margin-right: 5px;
+            margin-top: 5px;
+            font-size: 30px;
+            margin-left: 20px;
+            color: black;
         }
 
         .button1 {
@@ -200,6 +280,89 @@
                 margin-top: 0;
             }
         }
+
+        .registrationSize{
+            font-size: 10px;
+        }
+
+
+
+
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 25px;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        #customers tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            font-family: "Times New Roman", Times, serif;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #112D32;
+            color: white;
+        }
+
+        .helptext{
+            font-size: 10px;
+            color: black;
+        }
+
+        .cond{
+            text-align: left;
+        }
+        .reg{
+            font-family: 'Fjalla One', sans-serif;
+            font-size: 40px;
+        }
+
+        .reg1{
+            font-family: 'Fjalla One', sans-serif;
+            font-size: 25px;
+        }
+
+        .regFOR{
+            float: left;
+            text-align: left;
+            display: inline-block;
+            margin-right: 100px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .column {
+            font-family: 'Fjalla One', sans-serif;
+            font-size: 20px;
+            float: right;
+            width: 300px;
+            padding: 20px;
+            height: 33.33%;
+            color: #4F4A41;
+        }
+
+        .column1 {
+            font-family: 'Fjalla One', sans-serif;
+            font-size: 20px;
+            float: right;
+            width: 30%;
+
+            padding: 20px;
+            height: 20%;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -211,7 +374,7 @@
       <!--&lt;!&ndash;<a class="navbar-brand" href="/blog">CHECKI</a>&ndash;&gt;-->
     <!--</div>-->
       <div id="navigation">
-        <ul class="nav navbar-nav">
+        <ul class="navbarnav">
             <span><img src="{% static 'images/list.png' %}" width="40" height="40" > CHECKI</span>
             {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}">Logout</a></li>
