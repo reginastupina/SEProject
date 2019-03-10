@@ -7,6 +7,8 @@ urlpatterns = [
     path('<int:list>/todo', views.todo_list),
     path('<int:list>/completed', views.completed_todo_list),
     path('create_list', views.create_list),
+    path('lists', views.show_lists),
+    path('<int:list>/listsct', views.show_lists),
     path('<int:fk>/delete_list', views.delete_list),
     path('<int:fk>/task_done/<int:pk>', views.make_done),
     path('<int:fk>/task_notdone/<int:pk>', views.make_notdone),

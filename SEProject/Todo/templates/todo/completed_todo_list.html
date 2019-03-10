@@ -3,30 +3,27 @@
 
 {% block body %}
     <div id="main">
-        <a href="../" type="button" class="button button1">View lists</a>
+        <a href="listsct" type="button" class="button button1">View lists</a>
         <hr>
-        <h3>Tasks</h3>
+        <div>Tasks</div>
         <form method="GET" class="form-inline" action="./completed">
             <input class="form-control" type="text" name = "name" placeholder="Search">
             <button type="submit" class="button button1" style="margin-left: 5px;">Submit</button>
         </form>
-        <a href="./completed" type="button" class="button button1">Reset</a>
-        <div class="dropdown">
-            <button type="button" class="button button1" data-toggle="dropdown">
-                Order by
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" onclick="window.location.href='./completed?order=name'">Name</a>
-                <a class="dropdown-item" onclick="window.location.href='./completed?order=cr_date'">Creation date</a>
-            </div>
+        <a type="button" class="button button1">Reset</a>
+        <button type="button" class="button button1" onclick="window.location.href='./?order=name'" >Order by name</button>
+            <!--<div class="dropdown-menu">-->
+                <!--<a class="dropdown-item" onclick="window.location.href='./completed?order=name'">Name</a>-->
+                <!--<a class="dropdown-item" onclick="window.location.href='./completed?order=cr_date'">Creation date</a>-->
+            <!--</div>-->
         </div>
-        <table class="table">
+        <table class="table" id="customers">
             <tr>
                 <th>Task</th>
                 <th>Created</th>
                 <th>Due on</th>
                 <th>Owner</th>
-                <!--<th>Mark</th>-->
+                <th>Mark</th>
             </tr>
             {% for task in tasks %}
                     <tr>
